@@ -1,0 +1,28 @@
+package com.lcx.lcxaicodemother.ai;
+
+import com.lcx.lcxaicodemother.ai.model.HtmlCodeResult;
+import com.lcx.lcxaicodemother.ai.model.MultiFileCodeResult;
+import jakarta.annotation.Resource;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class AiCodeGeneratorServiceTest {
+
+    @Resource
+    AiCodeGeneratorService aiCodeGeneratorService;
+
+    @Test
+    void generateHtmlCode() {
+
+        HtmlCodeResult generateHtmlCode = aiCodeGeneratorService.generateHtmlCode("做一个程序员星痕的工作记录小工具");
+        Assertions.assertNotNull(generateHtmlCode);
+    }
+
+    @Test
+    void generateMultiFileCode() {
+        MultiFileCodeResult generateMultiFileCode = aiCodeGeneratorService.generateMultiFileCode("做个程序员星痕的留言板");
+        Assertions.assertNotNull(generateMultiFileCode);
+    }
+}
